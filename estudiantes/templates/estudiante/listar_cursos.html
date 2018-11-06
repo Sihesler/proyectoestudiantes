@@ -1,0 +1,36 @@
+{% extends 'base/header.html' %}
+
+      {% block content %}
+      <h4> Registro de Cursos</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td> Materia </td>
+            <td> Profesor </td>
+            <td> Hora </td>
+            <td> Estudiantes </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for cursos in curso %}
+
+          <tr>
+            <td> {{ cursos.materia }} </td>
+            <td> {{ cursos.profesor }} </td>
+            <td> {{ cursos.hora }} </td>
+
+            <td>
+            {% for estudiante in cursos.estudiantes.all %}
+            <li>{{ estudiante.nombre }}</li>
+              {% endfor %}
+            </td>
+
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+      {% endblock %}
