@@ -25,7 +25,10 @@
             <li>{{ estudiante.nombre }}</li>
               {% endfor %}
             </td>
-
+            <td>
+              <a class="btn btn-danger" href="{% url 'curso_detalle' pk=cursos.pk %}"> Ver </a>
+               
+            </td>
           </tr>
 
           {% endfor %}

@@ -22,6 +22,10 @@
             <td> {{ estudiantes.edad }} </td>
             <td> {{ estudiantes.fecha_nacimiento }} </td>
             <td> {{ estudiantes.direccion }} </td>
+
+            <td>
+              <a class="btn btn-danger" href="{% url 'estudiante_detalle' pk=estudiantes.pk %}"> Ver </a>
+            </td>
           </tr>
           {% endfor %}
 
