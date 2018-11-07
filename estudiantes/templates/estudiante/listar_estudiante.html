@@ -24,7 +24,9 @@
             <td> {{ estudiantes.direccion }} </td>
 
             <td>
+              {% if user.is_authenticated %}
               <a class="btn btn-warning" href="{% url 'estudiante_detalle' pk=estudiantes.pk %}"> Ver </a>
+              {% endif %}
             </td>
           </tr>
           {% endfor %}

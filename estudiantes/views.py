@@ -4,14 +4,18 @@ from .forms import CursoForm, EstudianteForm
 from estudiantes.models import Estudiante, Curso
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'estudiante/index.html')
 
+@login_required
 def estudiante_detalle(request, pk):
         estudiante = get_object_or_404(Estudiante, pk=pk)
         return render(request, 'estudiante/estudiante_detalle.html', {'estudiante': estudiante})
 
+@login_required
 def curso_detalle(request, pk):
         curso = get_object_or_404(Curso, pk=pk)
         return render(request, 'estudiante/curso_detalle.html', {'curso': curso})
@@ -26,8 +30,7 @@ def curso_list(request):
     curso = Curso.objects.all()
     return render(request, 'estudiante/listar_cursos.html', {'curso':curso})
 
-
-
+@login_required
 def curso_nuevo(request):
     if request.method == "POST":
         formulario = CursoForm(request.POST)
@@ -37,12 +40,10 @@ def curso_nuevo(request):
             formulario.save_m2m()
             return redirect('curso_list')
     else:
-
         formulario = CursoForm()
-
     return render(request, 'estudiante/curso_nuevo.html', {'formulario': formulario})
 
-
+@login_required
 def estudiante_nuevo(request):
     if request.method == "POST":
         formulario = EstudianteForm(request.POST)
@@ -54,19 +55,19 @@ def estudiante_nuevo(request):
         form = EstudianteForm()
     return render(request, 'estudiante/estudiante_nuevo.html', {'form': form})
 
-
-
+@login_required
 def estudiante_remove(request, pk):
     estudiante = get_object_or_404(Estudiante, pk=pk)
     estudiante.delete()
     return redirect('estudiante_list')
 
+@login_required
 def curso_remove(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     curso.delete()
     return redirect('curso_list')
 
-
+@login_required
 def curso_editar(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     if request.method == "POST":
@@ -80,8 +81,7 @@ def curso_editar(request, pk):
         form = CursoForm(instance=curso)
     return render(request, 'estudiante/curso_editar.html', {'form': form})
 
-
-
+@login_required
 def estudiante_editar(request, pk):
     estudiante = get_object_or_404(Estudiante, pk=pk)
     if request.method == "POST":

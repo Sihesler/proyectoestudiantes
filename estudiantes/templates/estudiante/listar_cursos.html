@@ -26,7 +26,9 @@
               {% endfor %}
             </td>
             <td>
+              {% if user.is_authenticated %}
               <a class="btn btn-warning" href="{% url 'curso_detalle' pk=cursos.pk %}"> Ver </a>
+              {% endif %}
             </td>
           </tr>
 
