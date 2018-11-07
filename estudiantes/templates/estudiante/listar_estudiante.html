@@ -2,7 +2,7 @@
 
 
       {% block content %}
-      <h4> Registro de Estudiantes </h4>
+      <h2> Registro de Estudiantes </h2>
 
       <table class="table table-bordered">
         <thead>
@@ -24,7 +24,7 @@
             <td> {{ estudiantes.direccion }} </td>
 
             <td>
-              <a class="btn btn-danger" href="{% url 'estudiante_detalle' pk=estudiantes.pk %}"> Ver </a>
+              <a class="btn btn-warning" href="{% url 'estudiante_detalle' pk=estudiantes.pk %}"> Ver </a>
             </td>
           </tr>
           {% endfor %}
@@ -43,7 +43,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'index' %}"> Inicio </a>
             </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
 
       {% endblock %}

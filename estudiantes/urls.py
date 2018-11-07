@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^curso/(?P<pk>[0-9]+)/$', views.curso_detalle, name='curso_detalle'),
     url(r'^estudiante/(?P<pk>\d+)/remove/$', views.estudiante_remove, name='estudiante_remove'),
     url(r'^curso/(?P<pk>\d+)/remove/$', views.curso_remove, name='curso_remove'),
+    url(r'^curso/(?P<pk>[0-9]+)/editar/$', views.curso_editar, name='curso_editar'),
+    url(r'^estudiante/(?P<pk>[0-9]+)/editar/$', views.estudiante_editar, name='estudiante_editar'),
 
     #url(r'^detalle$', views.curso_detalle, name='curso_detalle'),
     #url(r'^listar$', views.curso_list, name='curso_list'),

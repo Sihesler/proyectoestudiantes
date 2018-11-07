@@ -1,7 +1,7 @@
 {% extends 'base/header.html' %}
 
       {% block content %}
-      <h4> Registro de Cursos</h4>
+      <h2> Registro de Cursos</h2>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -26,8 +26,7 @@
               {% endfor %}
             </td>
             <td>
-              <a class="btn btn-danger" href="{% url 'curso_detalle' pk=cursos.pk %}"> Ver </a>
-               
+              <a class="btn btn-warning" href="{% url 'curso_detalle' pk=cursos.pk %}"> Ver </a>
             </td>
           </tr>
 

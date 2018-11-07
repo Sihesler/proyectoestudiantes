@@ -1,8 +1,7 @@
-{% extends 'base/base2.html' %}
-
+{% extends 'base/header.html' %}
 
 {% block content %}
-    <h1> Nuevo Curso </h1>
+    <h1> Editar Curso </h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default"> Guardar </button>
@@ -13,9 +12,10 @@
       <div class="container">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'estudiante_list' %}"> Regresar </a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'curso_list' %}"> Regresar </a>
           </li>
         </ul>
-      </div>
-    </nav>
+    </div>
+  </nav>
+
 {% endblock %}

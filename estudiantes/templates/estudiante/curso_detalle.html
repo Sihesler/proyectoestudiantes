@@ -1,7 +1,7 @@
 {% extends 'base/header.html' %}
 
       {% block content %}
-      <h4> Registro de Cursos</h4>
+      <h2> Detalle del Curso</h2>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -26,6 +26,7 @@
             </td>
 
             <td>
+              <a class="btn btn-secondary" href="{% url 'curso_editar' pk=curso.pk %}"> Editar </a>
               <a class="btn btn-danger" href="{% url 'curso_remove' pk=curso.pk %}"> Eliminar </a>
             </td>
           </tr>
@@ -41,8 +42,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'curso_list' %}"> Regresar </a>
             </li>
           </ul>
-        </nav>
-      </div>
-
+        </div>
+      </nav>
 
       {% endblock %}

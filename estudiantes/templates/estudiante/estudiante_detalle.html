@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<h4> Registro de Estudiantes </h4>
+<h4> Detalle del Estudiante </h4>
 
 <table class="table table-bordered">
   <thead>
@@ -24,6 +24,7 @@
       <td> {{ estudiante.direccion }} </td>
 
       <td>
+        <a class="btn btn-secondary" href="{% url 'estudiante_editar' pk=estudiante.pk %}"> Editar </a>
         <a class="btn btn-danger" href="{% url 'estudiante_remove' pk=estudiante.pk %}"> Eliminar </a>
       </td>
     </tr>
@@ -38,8 +39,7 @@
         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'estudiante_list' %}"> Regresar </a>
       </li>
     </ul>
-  </nav>
-</div>
-
+  </div>
+</nav>
 
 {% endblock %}

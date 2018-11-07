@@ -65,3 +65,31 @@ def curso_remove(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     curso.delete()
     return redirect('curso_list')
+
+
+def curso_editar(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    if request.method == "POST":
+        formulario = CursoForm(request.POST,request.FILES, instance=curso)
+        if formulario.is_valid():
+            curso_edit=formulario.save(commit=False)
+            formulario.save_m2m()
+            curso_edit.save()
+            return redirect('curso_detalle', pk=curso_edit.pk)
+    else:
+        form = CursoForm(instance=curso)
+    return render(request, 'estudiante/curso_editar.html', {'form': form})
+
+
+
+def estudiante_editar(request, pk):
+    estudiante = get_object_or_404(Estudiante, pk=pk)
+    if request.method == "POST":
+        formulario = EstudianteForm(request.POST, instance=estudiante)
+        if formulario.is_valid():
+            estudiante_edit = formulario.save(commit=False)
+            estudiante_edit.save()
+            return redirect('estudiante_detalle', pk=estudiante_edit.pk)
+    else:
+        form = EstudianteForm(instance=estudiante)
+        return render(request, 'estudiante/estudiante_editar.html', {'form': form})
