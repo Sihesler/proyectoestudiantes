@@ -60,7 +60,7 @@
 
         </div>
         {% if user.is_authenticated %}
-          <p class="top-menu" style="color: #ffffff";> Bienvenido {{ user.username }} (<a class="badge badge-danger" href="{% url 'logout' %}"> Cerrar Sesión </a>)</p>
+          <p class="top-menu" style="color: #ffffff";> Bienvenido/a {{ user.username }} (<a class="badge badge-danger" href="{% url 'logout' %}"> Cerrar Sesión </a>)</p>
         {% else %}
           <a class="fform-group has-feedback" href="{% url 'login' %}"> Login </a>
         {% endif %}
